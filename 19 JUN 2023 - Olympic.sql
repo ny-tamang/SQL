@@ -1,4 +1,4 @@
--- creating database for the Olym
+-- creating database for the Olympic --
 create table if not exists Country(
     country_id int not null auto_increment,
     country_name varchar(225),
