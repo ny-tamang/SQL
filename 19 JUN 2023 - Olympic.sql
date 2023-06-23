@@ -62,4 +62,3 @@ create table if not exists Result(
     constraint  fk_event foreign key (event_id) references Event(event_id) on delete cascade on update cascade                              
 );
 
--- from the livedb --
