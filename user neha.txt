@@ -1,0 +1,118 @@
+Microsoft Windows [Version 10.0.19045.3086]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Dell>mysql -u neha -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| performance_schema |
++--------------------+
+2 rows in set (0.01 sec)
+
+mysql> create database personaldb;
+ERROR 1044 (42000): Access denied for user 'neha'@'localhost' to database 'personaldb'
+mysql> create database personaldb;
+ERROR 1044 (42000): Access denied for user 'neha'@'localhost' to database 'personaldb'
+mysql> flush privileges;
+ERROR 1227 (42000): Access denied; you need (at least one of) the RELOAD privilege(s) for this operation
+mysql> flush privileges;
+ERROR 1227 (42000): Access denied; you need (at least one of) the RELOAD privilege(s) for this operation
+mysql>exit
+Bye!
+
+Microsoft Windows [Version 10.0.19045.3086]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Dell>mysql -u neha -p
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| attendence         |
+| classicmodels      |
+| covid19_db         |
+| employees          |
+| information_schema |
+| livedb             |
+| music              |
+| mysql              |
+| olympic            |
+| performance_schema |
+| showwinfunc        |
+| sys                |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> create database testdb;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> use testdb;
+Database changed
+mysql> create table lists(
+    -> id int auto_increment primary key,
+    -> todo varchar(225) not null,
+    -> completed bool default false);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> grant all privileges on tstdb.* to neha@localhost;
+ERROR 1044 (42000): Access denied for user 'neha'@'localhost' to database 'tstdb'
+mysql> grant all privileges on testdb.* to neha@localhost;
+ERROR 1044 (42000): Access denied for user 'neha'@'localhost' to database 'testdb'
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_testdb |
++------------------+
+| lists            |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into lists(todo) values('practice sql commands');
+ERROR 1142 (42000): INSERT command denied to user 'neha'@'localhost' for table 'lists'
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into lists(todo) values('practice sql commands');
+ERROR 1142 (42000): INSERT command denied to user 'neha'@'localhost' for table 'lists'
+mysql> use testdb;
+Database changed
+mysql> insert into lists(todo) values('practice sql commands');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> exit
+Bye
+
+C:\Users\Dell>
